@@ -1,17 +1,25 @@
 <ion-header [translucent]="true" class="ion-no-border">
-    <ion-toolbar>
+    <ion-toolbar color="dark">
         <ion-title>
-            Pending
+            Pending Taks
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <ion-header collapse="condense" class="ion-no-border">
-        <ion-toolbar>
-            <ion-title size="large">Pending Taks</ion-title>
-        </ion-toolbar>
-    </ion-header>
+<ion-content [fullscreen]="true" color="dark">
 
 
+    <ion-list color="dark">
+        <ion-item routerLink="/tabs/tab1/add/{{item.id}}" color="dark" *ngFor="let item of tasksService.lists" detail>
+            <ion-label>
+                {{item.title}}
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" (click)="addList();">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

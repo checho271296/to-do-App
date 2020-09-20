@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons>
+            <ion-back-button color="danger" defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{listInfo.title}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+    <ion-list color="dark">
+        <ion-item color="dark">
+            <ion-label position="floating">New item:</ion-label>
+            <ion-input type="text" [(ngModel)]="itemName" (keyup.enter)="addItem();"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header color="dark">
+            <ion-label>To do:</ion-label>
+        </ion-list-header>
+
+        <ion-item color="dark" *ngFor="let item of listInfo.items">
+            <ion-label>{{item.desc}}</ion-label>
+            <ion-checkbox slot="start" color="danger" [(ngModel)]="item.done"></ion-checkbox>
+        </ion-item>
+
+    </ion-list>
+</ion-content>
