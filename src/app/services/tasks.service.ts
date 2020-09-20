@@ -20,6 +20,17 @@ export class TasksService {
      return newList.id;
    }
 
+   deleteList(list : List){
+     this.lists = this.lists.filter(data => list.id !== data.id);
+     this.saveStorage();
+   }
+
+   editList(id: number,name :string){
+      let idList = this.lists.findIndex((obj => obj.id == id));
+      this.lists[idList].title = name;
+      this.saveStorage();
+   }
+
    getList(id:string | number){
       id = Number(id);
       return this.lists.find(data => data.id === id);

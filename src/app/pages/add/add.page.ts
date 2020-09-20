@@ -31,4 +31,21 @@ export class AddPage implements OnInit {
     this.tasksService.saveStorage();
   }
 
+  changeState(item : ListItem){
+    
+    const missing = this.listInfo.items.filter(data => !data.done).length;
+    if(missing === 0){
+      this.listInfo.done = true;
+      this.listInfo.doneDate = new Date();
+    }else{
+      this.listInfo.done = false;
+      this.listInfo.doneDate = null;
+    }
+    this.tasksService.saveStorage();
+  }
+  deleteItem(i : number){
+    this.listInfo.items.splice(i,1);
+    this.tasksService.saveStorage();
+  }
+
 }

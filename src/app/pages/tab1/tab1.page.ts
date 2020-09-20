@@ -3,6 +3,7 @@ import { TasksService } from '../../services/tasks.service';
 import { List } from '../../models/list.model';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ListItem } from '../../models/list-item.model';
 
 @Component({
   selector: 'app-tab1',
@@ -12,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 export class Tab1Page {
 
   
-  constructor(private tasksService:TasksService, private router: Router,
+  constructor(public tasksService:TasksService, private router: Router,
               private alertController: AlertController  ) {
     
   }
@@ -54,4 +55,6 @@ export class Tab1Page {
 
     alert.present();
   }
+
+  
 }

@@ -4,6 +4,10 @@ import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
   {
+    path: 'add/:id',
+    loadChildren: () => import('../add/add.module').then( m => m.AddPageModule)
+  },
+  {
     path: '',
     component: Tab2Page,
   }
