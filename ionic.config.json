@@ -1,7 +1,0 @@
-{
-  "name": "taks",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
